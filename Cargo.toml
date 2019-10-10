@@ -31,7 +31,7 @@ verbose-errors = []
 
 [dependencies]
 regex = { git = "https://github.com/mesalock-linux/regex-sgx", optional = true }
-lazy_static = { version = "^0.2.2", optional = true }
+lazy_static = { version = "^0.2.2", features = ["spin_no_std"], optional = true }
 
 
 #[dev-dependencies.bytes]
