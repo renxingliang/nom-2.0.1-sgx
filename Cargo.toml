@@ -29,13 +29,10 @@ regexp_macros = ["regexp", "lazy_static"]
 stream = []
 verbose-errors = []
 
-[dependencies.regex]
-version = "^0.1.56"
-optional = true
+[dependencies]
+regex = { git = "https://github.com/mesalock-linux/regex-sgx", optional = true }
+lazy_static = { version = "^0.2.2", optional = true }
 
-[dependencies.lazy_static]
-version = "^0.2.2"
-optional = true
 
 #[dev-dependencies.bytes]
 #git = "https://github.com/carllerche/bytes"
