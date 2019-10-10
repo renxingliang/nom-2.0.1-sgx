@@ -8,7 +8,6 @@ use verbose_errors::Err;
 #[cfg(not(feature = "core"))]
 use std::collections::HashMap;
 
-#[cfg(feature = "core")]
 use std::prelude::v1::*;
 
 use std::vec::Vec;

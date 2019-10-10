@@ -86,11 +86,18 @@
 //!   assert_eq!(expr(b"2*2/(5-1)+3"), IResult::Done(&b""[..], 4));
 //! }
 //! ```
-#![cfg_attr(feature = "core", feature(no_std))]
-#![cfg_attr(feature = "core", feature(collections))]
-#![cfg_attr(feature = "core", no_std)]
-#![cfg_attr(feature = "nightly", feature(test))]
-#![cfg_attr(feature = "nightly", feature(const_fn))]
+#![cfg_attr(all(feature = "mesalock_sgx", not(target_env = "sgx")), no_std)]
+#![cfg_attr(all(target_env = "sgx", target_vendor = "mesalock"), feature(rustc_private))]
+
+#![cfg(all(feature = "mesalock_sgx", not(target_env = "sgx")))]
+#[macro_use]
+extern crate sgx_tstd as std;
+
+//#![cfg_attr(feature = "core", feature(no_std))]
+//#![cfg_attr(feature = "core", feature(collections))]
+//#![cfg_attr(feature = "core", no_std)]
+//#![cfg_attr(feature = "nightly", feature(test))]
+//#![cfg_attr(feature = "nightly", feature(const_fn))]
 //#![warn(missing_docs)]
 
 #[cfg(feature = "core")]

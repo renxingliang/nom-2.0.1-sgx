@@ -4,11 +4,12 @@
 /// * previous implementation of Producer and Consumer spent its time copying buffers
 /// * the old Consumer was handling everything and buffering data. The new design has the producer handle data, but the consumer makes seeking decision
 use std::io::{self,Read,Write,Seek,SeekFrom};
-use std::fs::File;
+use std::untrusted::fs::File;
 use std::path::Path;
 use std::ptr;
 use std::iter::repeat;
 use internal::Needed;
+use std::prelude::v1::*;
 
 //pub type Computation<I,O,S,E> = Box<Fn(S, Input<I>) -> (I,Consumer<I,O,S,E>)>;
 
